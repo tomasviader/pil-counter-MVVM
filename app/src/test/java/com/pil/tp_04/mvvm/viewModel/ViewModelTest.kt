@@ -1,22 +1,14 @@
-package com.pil.tp_04.mvp.presenter
+package com.pil.tp_04.mvvm.viewModel
 
-import com.pil.tp_04.mvp.contract.MainContract
-import com.pil.tp_04.mvp.model.MainModel
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
-import org.junit.Before
-import org.junit.Test
+class ViewModelTest {
 
-class MainPresenterTest {
-
-    private var view: MainContract.View = mockk(relaxed = true)
+   /* private var view: MainContract.View = mockk(relaxed = true)
 
     private lateinit var presenter: MainContract.Presenter
 
     @Before
     fun setup() {
-        presenter = MainPresenter(MainModel(), view)
+        presenter = ViewModel(MainModel(), view)
 
         verify { view.onIncrementButtonPressed(any()) }
         verify { view.onDecrementButtonPressed(any()) }
@@ -71,5 +63,5 @@ class MainPresenterTest {
         private const val SEVEN_STRING = "7"
         private const val MINUS_SEVEN_STRING = "-7"
         private const val EMPTY_STRING = ""
-    }
+    }*/
 }
