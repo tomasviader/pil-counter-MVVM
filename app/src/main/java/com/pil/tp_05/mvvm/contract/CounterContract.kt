@@ -1,6 +1,9 @@
-package com.pil.tp_04.mvp.contract
+package com.pil.tp_05.mvvm.contract
 
-interface MainContract {
+import androidx.lifecycle.LiveData
+import com.pil.tp_05.mvvm.viewmodel.CounterViewModel
+
+interface CounterContract {
     interface Model {
         var counter: Int
         fun increment(inputValue: Int)
@@ -17,9 +20,11 @@ interface MainContract {
         fun clear()
     }
 
-    interface Presenter {
-        fun onIncrementButtonPressed()
-        fun onDecrementButtonPressed()
-        fun onResetButtonPressed()
+
+    interface ViewModel {
+        fun getValue(): LiveData<CounterViewModel.CounterData>
+        fun resetValue()
+        fun incValue()
+        fun decValue()
     }
 }
