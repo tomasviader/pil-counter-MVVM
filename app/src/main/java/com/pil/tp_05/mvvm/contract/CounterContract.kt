@@ -11,18 +11,10 @@ interface CounterContract {
         fun reset()
     }
 
-    interface View {
-        fun onIncrementButtonPressed(onClick: () -> Unit)
-        fun onDecrementButtonPressed(onClick: () -> Unit)
-        fun onResetButtonPressed(onClick: () -> Unit)
-        fun getInputValue(): String
-        fun showCounter(counter: String)
-        fun clear()
-    }
-
-
     interface ViewModel {
         fun getValue(): LiveData<CounterViewModel.CounterData>
+
+        fun getInputValue()
         fun resetValue()
         fun incValue()
         fun decValue()

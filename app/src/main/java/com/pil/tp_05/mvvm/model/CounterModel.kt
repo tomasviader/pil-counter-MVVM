@@ -2,7 +2,7 @@ package com.pil.tp_05.mvvm.model
 
 import com.pil.tp_05.mvvm.contract.CounterContract
 
-class MainModel : CounterContract.Model {
+class CounterModel : CounterContract.Model {
     override var counter: Int = ZERO_INT
 
     override fun increment(inputValue: Int) {

@@ -1,13 +1,5 @@
 package com.pil.tp_05.mvvm.viewmodel
 
-import com.pil.tp_05.mvvm.contract.CounterContract
-import com.pil.tp_05.mvvm.model.MainModel
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
-import org.junit.Before
-import org.junit.Test
-
 class CounterViewModelTest {
 
    /* private var view: CounterContract.View = mockk(relaxed = true)
