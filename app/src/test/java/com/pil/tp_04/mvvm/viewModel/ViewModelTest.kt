@@ -1,14 +1,25 @@
+
 package com.pil.tp_04.mvvm.viewModel
 
-class ViewModelTest {
+import com.pil.tp_04.mvvm.contract.CounterContract
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import org.junit.Before
+import org.junit.Test
 
-   /* private var view: MainContract.View = mockk(relaxed = true)
 
-    private lateinit var presenter: MainContract.Presenter
+
+class CounterViewModelTest {
+
+    /*private var view: CounterContract.View = mockk(relaxed = true)
+
+    private lateinit var presenter: CounterContract.Presenter
 
     @Before
     fun setup() {
-        presenter = ViewModel(MainModel(), view)
+        presenter = CounterViewModel(MainModel())
+
 
         verify { view.onIncrementButtonPressed(any()) }
         verify { view.onDecrementButtonPressed(any()) }
