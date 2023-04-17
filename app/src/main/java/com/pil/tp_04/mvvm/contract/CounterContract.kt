@@ -13,11 +13,8 @@ interface CounterContract {
 
 
     interface ViewModel {
-        fun getValue(): LiveData<CounterViewModel.CounterData>
-
-        fun getInputValue()
+        fun incValue(inputValue: Int)
+        fun decValue(inputValue : Int)
         fun resetValue()
-        fun incValue()
-        fun decValue()
     }
 }

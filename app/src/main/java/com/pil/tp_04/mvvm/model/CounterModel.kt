@@ -12,6 +12,7 @@ class CounterModel : CounterContract.Model {
 
     override fun decrement(inputValue: Int) {
         counter -= inputValue
+
     }
 
     override fun reset() {
