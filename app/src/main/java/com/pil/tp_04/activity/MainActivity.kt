@@ -1,14 +1,14 @@
-package com.pil.tp_04.activity
+package com.pil.tp_04.activity // ktlint-disable package-name
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.pil.tp_04.databinding.ActivityMainBinding
 import com.pil.tp_04.mvvm.model.CounterModel
 import com.pil.tp_04.mvvm.viewModel.CounterViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel : CounterViewModel = CounterViewModel(CounterModel())
+    private val viewModel: CounterViewModel = CounterViewModel(CounterModel())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                 binding.counter.text = it.value.toString()
                 binding.inputCount.text.clear()
             }
-
         }
     }
 }

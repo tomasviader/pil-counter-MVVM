@@ -8,7 +8,8 @@ import com.pil.tp_04.mvvm.contract.CounterContract
 class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), CounterContract.ViewModel {
 
     private val mutableLiveData: MutableLiveData<CounterData> = MutableLiveData()
-    val data : LiveData<CounterData> = mutableLiveData
+    val data: LiveData<CounterData> = mutableLiveData
+
 
     override fun getValue(): LiveData<CounterData> {
         return mutableLiveData
@@ -19,7 +20,7 @@ class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), 
     }
 
     override fun incValue() {
-        model.increment(getValue().toString().toInt())
+        model.increment(getInputValue().toString().toInt())
         mutableLiveData.postValue(CounterData(CounterState.INC))
     }
 
@@ -35,14 +36,14 @@ class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), 
 
     data class CounterData(
         val state: CounterState = CounterState.INITIAL,
-        val value: Int = 0
+        val value: Int = 0,
     )
 
     enum class CounterState {
         INITIAL,
         INC,
         DEC,
-        RES
+        RES,
     }
 
     companion object {

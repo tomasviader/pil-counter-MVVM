@@ -2,7 +2,6 @@ package com.pil.tp_04.mvvm.model
 
 import com.pil.tp_04.mvvm.contract.CounterContract
 
-
 class CounterModel : CounterContract.Model {
     override var counter: Int = ZERO_INT
 
