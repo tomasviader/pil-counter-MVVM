@@ -2,77 +2,54 @@
 package com.pil.tp_04.mvvm.viewModel
 
 import com.pil.tp_04.mvvm.contract.CounterContract
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.pil.tp_04.mvvm.model.CounterModel
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
-
+import org.junit.rules.TestRule
 
 
 class CounterViewModelTest {
 
-    /*private var view: CounterContract.View = mockk(relaxed = true)
+    @get:Rule
+    var rule: TestRule = InstantTaskExecutorRule()
 
-    private lateinit var presenter: CounterContract.Presenter
+    private lateinit var viewModel: CounterContract.ViewModel
 
     @Before
     fun setup() {
-        presenter = CounterViewModel(MainModel())
-
-
-        verify { view.onIncrementButtonPressed(any()) }
-        verify { view.onDecrementButtonPressed(any()) }
-        verify { view.onResetButtonPressed(any()) }
-        verify { view.showCounter(ZERO_STRING) }
+        viewModel = CounterViewModel(CounterModel())
     }
 
     @Test
     fun `on increment button pressed with number test`() {
-        every { view.getInputValue() } returns FIVE_STRING
-
-        presenter.onIncrementButtonPressed()
-
-        verify { view.showCounter(FIVE_STRING) }
-    }
-
-    @Test
-    fun `on increment button pressed without number test`() {
-        every { view.getInputValue() } returns EMPTY_STRING
-
-        presenter.onIncrementButtonPressed()
-
-        verify { view.showCounter(ZERO_STRING) }
+        viewModel.incValue(FIVE)
+        assertEquals(FIVE, viewModel.getValue().value?.value)
+        assertEquals(CounterViewModel.CounterState.INC, viewModel.getValue().value?.state)
     }
 
     @Test
     fun `on decrement button pressed test`() {
-        every { view.getInputValue() } returns SEVEN_STRING
-
-        presenter.onDecrementButtonPressed()
-        
-        verify { view.showCounter(MINUS_SEVEN_STRING) }
+        viewModel.incValue(SEVEN)
+        viewModel.decValue(SEVEN)
+        assertEquals(ZERO, viewModel.getValue().value?.value)
+        assertEquals(CounterViewModel.CounterState.DEC, viewModel.getValue().value?.state)
     }
 
     @Test
     fun `on reset button pressed test`() {
-        every { view.getInputValue() } returns SEVEN_STRING
-
-        presenter.onIncrementButtonPressed()
-
-        verify { view.showCounter(SEVEN_STRING) }
-
-        presenter.onResetButtonPressed()
-
-        verify { view.showCounter(ZERO_STRING) }
-        verify { view.clear() }
+        viewModel.incValue(SEVEN)
+        viewModel.incValue(FIVE)
+        viewModel.resetValue()
+        assertEquals(ZERO, viewModel.getValue().value?.value)
+        assertEquals(CounterViewModel.CounterState.RES, viewModel.getValue().value?.state)
     }
 
     companion object {
-        private const val ZERO_STRING = "0"
-        private const val FIVE_STRING = "5"
-        private const val SEVEN_STRING = "7"
-        private const val MINUS_SEVEN_STRING = "-7"
-        private const val EMPTY_STRING = ""
-    }*/
+        private const val ZERO = 0
+        private const val FIVE = 5
+        private const val SEVEN = 7
+    }
 }

@@ -1,4 +1,4 @@
-package com.pil.tp_04.mvvm.model
+package com.pil.tp_04.mvvm.model // ktlint-disable package-name
 
 import com.pil.tp_04.mvvm.contract.CounterContract
 

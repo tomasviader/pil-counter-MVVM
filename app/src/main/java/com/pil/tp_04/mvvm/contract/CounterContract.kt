@@ -1,4 +1,4 @@
-package com.pil.tp_04.mvvm.contract
+package com.pil.tp_04.mvvm.contract // ktlint-disable package-name
 
 import androidx.lifecycle.LiveData
 import com.pil.tp_04.mvvm.viewModel.CounterViewModel
@@ -12,10 +12,9 @@ interface CounterContract {
     }
 
     interface ViewModel {
-        fun getValue(): LiveData<CounterViewModel.CounterData>
-        fun getInputValue()
+        fun incValue(inputValue: Int)
+        fun decValue(inputValue: Int)
         fun resetValue()
-        fun incValue()
-        fun decValue()
+        fun getValue(): LiveData<CounterViewModel.CounterData>
     }
 }
