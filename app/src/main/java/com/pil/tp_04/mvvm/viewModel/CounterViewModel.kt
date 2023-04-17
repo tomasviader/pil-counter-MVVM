@@ -10,6 +10,10 @@ class CounterViewModel(private val model: CounterContract.Model) : ViewModel(), 
     private val mutableData: MutableLiveData<CounterData> = MutableLiveData()
     val data: LiveData<CounterData> = mutableData
 
+    override fun getValue(): LiveData<CounterData> {
+        return mutableData
+    }
+
     override fun incValue(inputValue : Int) {
         model.increment(inputValue)
         mutableData.postValue(CounterData(CounterState.INC, model.counter))

@@ -16,5 +16,6 @@ interface CounterContract {
         fun incValue(inputValue: Int)
         fun decValue(inputValue : Int)
         fun resetValue()
+        fun getValue(): LiveData<CounterViewModel.CounterData>
     }
 }
