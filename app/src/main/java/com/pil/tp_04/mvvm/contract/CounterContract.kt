@@ -11,7 +11,6 @@ interface CounterContract {
         fun reset()
     }
 
-
     interface ViewModel {
         fun incValue(inputValue: Int)
         fun decValue(inputValue : Int)

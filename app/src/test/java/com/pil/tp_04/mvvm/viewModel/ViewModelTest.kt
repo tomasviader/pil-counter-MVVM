@@ -18,7 +18,6 @@ class CounterViewModelTest {
 
     private lateinit var viewModel: CounterContract.ViewModel
 
-
     @Before
     fun setup() {
         viewModel = CounterViewModel(CounterModel())
@@ -28,15 +27,15 @@ class CounterViewModelTest {
     fun `on increment button pressed with number test`() {
         viewModel.incValue(FIVE)
         assertEquals(FIVE, viewModel.getValue().value?.value)
+        assertEquals(CounterViewModel.CounterState.INC, viewModel.getValue().value?.state)
     }
-
-
 
     @Test
     fun `on decrement button pressed test`() {
         viewModel.incValue(SEVEN)
         viewModel.decValue(SEVEN)
         assertEquals(ZERO, viewModel.getValue().value?.value)
+        assertEquals(CounterViewModel.CounterState.DEC, viewModel.getValue().value?.state)
     }
 
     @Test
@@ -45,7 +44,7 @@ class CounterViewModelTest {
         viewModel.incValue(FIVE)
         viewModel.resetValue()
         assertEquals(ZERO, viewModel.getValue().value?.value)
-
+        assertEquals(CounterViewModel.CounterState.RES, viewModel.getValue().value?.state)
     }
 
     companion object {
