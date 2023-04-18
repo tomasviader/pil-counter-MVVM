@@ -1,15 +1,13 @@
-
 package com.pil.tp_04.mvvm.viewModel
 
-import com.pil.tp_04.mvvm.contract.CounterContract
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.pil.tp_04.mvvm.contract.CounterContract
 import com.pil.tp_04.mvvm.model.CounterModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-
 
 class CounterViewModelTest {
 
