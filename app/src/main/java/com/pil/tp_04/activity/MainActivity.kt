@@ -1,4 +1,4 @@
-package com.pil.tp_04.activity // ktlint-disable package-name
+package com.pil.tp_04.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.increment.setOnClickListener { viewModel.incValue(binding.inputCount.text.toString().toInt()) }
-        binding.decrement.setOnClickListener { viewModel.decValue(binding.inputCount.text.toString().toInt()) }
+        binding.increment.setOnClickListener { viewModel.incValue(getInputValue()) }
+        binding.decrement.setOnClickListener { viewModel.decValue(getInputValue()) }
         binding.reset.setOnClickListener { viewModel.resetValue() }
 
         viewModel.data.observe({ lifecycle }, ::updateUI)
@@ -36,4 +36,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun getInputValue(): Int = binding.inputCount.text.toString().toInt()
 }
